@@ -6,23 +6,35 @@ type FullName struct {
 	// TODO: add fields
 }
 
-// TODO: declare a structure for birth date
+// Lösung für die Aufgaben
 
-type Profile struct {
-	// TODO: embed full name and birth date information
-	NumberOfSiblings byte
-	ZodiacSign       rune
+// Aufgabe 1: Steckbrief II
+package main
+
+import "fmt"
+
+type Person struct {
+	FirstName     string
+	LastName      string
+	DayOfBirth    int
+	MonthOfBirth  int
+	YearOfBirth   int
+	NumberOfSiblings int
 }
 
 func main() {
-	var me = Profile{
-		// TODO: set name and birth date information
-		NumberOfSiblings: 0,   // TODO: adjust
-		ZodiacSign:       ' ', // TODO: adjust
+	// Initialisierung des Steckbriefs
+	me := Person{
+		FirstName:        "Hussein",
+		LastName:         "Hammade",
+		DayOfBirth:       15,
+		MonthOfBirth:     7,
+		YearOfBirth:      1995,
+		NumberOfSiblings: 2,
 	}
-	fmt.Println(me)
 
-	fmt.Println("Siblings Before:", me.NumberOfSiblings)
-	// TODO: imagine, you get a little brother or sister
-	fmt.Println("Siblings After:", me.NumberOfSiblings)
+	// Anzahl der Geschwister erhöhen
+	me.NumberOfSiblings++
+
+	fmt.Printf("Mein Steckbrief: %+v\n", me)
 }
