@@ -35,8 +35,8 @@ func outputDateRange(zodiacSign rune) {
 
 func main() {
     // Beispiele für Sternzeichen
-    outputDateRange('♈') // Widder
     outputDateRange('♋') // Krebs
+	outputDateRange('♈') // Widder
     outputDateRange('♏') // Skorpion
     outputDateRange('♓') // Fische
     outputDateRange('❓') // Test für ein unbekanntes Zeichen
