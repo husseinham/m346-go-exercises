@@ -2,39 +2,30 @@ package main
 
 import "fmt"
 
-type FullName struct {
-	// TODO: add fields
-}
-
-// Lösung für die Aufgaben
-
-// Aufgabe 1: Steckbrief II
-package main
-
-import "fmt"
-
+// Definieren der Datenstruktur
 type Person struct {
-	FirstName     string
-	LastName      string
-	DayOfBirth    int
-	MonthOfBirth  int
-	YearOfBirth   int
-	NumberOfSiblings int
+	FirstName   string
+	LastName    string
+	DayOfBirth  int
+	MonthOfBirth string
+	YearOfBirth int
+	Siblings    int
 }
 
 func main() {
-	// Initialisierung des Steckbriefs
+	// Persönlicher Steckbrief
 	me := Person{
-		FirstName:        "Hussein",
-		LastName:         "Hammade",
-		DayOfBirth:       15,
-		MonthOfBirth:     7,
-		YearOfBirth:      1995,
-		NumberOfSiblings: 2,
+		FirstName:   "Max",
+		LastName:    "Muster",
+		DayOfBirth:  15,
+		MonthOfBirth: "Mai",
+		YearOfBirth: 1990,
+		Siblings:    2,
 	}
 
-	// Anzahl der Geschwister erhöhen
-	me.NumberOfSiblings++
+	fmt.Println("Vor Anpassung:", me)
 
-	fmt.Printf("Mein Steckbrief: %+v\n", me)
+	// Anzahl der Geschwister erhöhen
+	me.Siblings++
+	fmt.Println("Nach Anpassung:", me)
 }

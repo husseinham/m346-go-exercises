@@ -2,14 +2,65 @@ package main
 
 import "fmt"
 
-func main() {
-    suits := []rune{'◆', '♠', '♣', '♥'} // Farben: Karo, Pik, Kreuz, Herz
-    ranks := []string{"⑥", "⑦", "⑧", "⑨", "⑩", "J", "Q", "K", "A"} // Werte: 6 bis Ass
+// Datenstrukturen definieren
+type Student struct {
+	FirstName string
+	LastName  string
+}
 
-    for _, rank := range ranks { // Äußere Schleife: Werte (ranks)
-        for _, suit := range suits { // Innere Schleife: Farben (suits)
-            fmt.Printf("%c%s\t", suit, rank) // Karte ausgeben (Symbol + Wert)
-        }
-        fmt.Println() // Neue Zeile nach jeder Reihe von Farben
-    }
+type Class struct {
+	Name     string
+	Students []Student
+}
+
+type Module struct {
+	Number int
+	Classes []Class
+}
+
+func main() {
+	// Klassen erstellen
+	classA := Class{
+		Name: "Class A",
+		Students: []Student{
+			{"Anna", "Müller"},
+			{"Peter", "Schmidt"},
+			{"Lisa", "Weber"},
+		},
+	}
+	classB := Class{
+		Name: "Class B",
+		Students: []Student{
+			{"Tom", "Hoffmann"},
+			{"Sara", "Klein"},
+			{"Mark", "Fischer"},
+		},
+	}
+
+	// Module erstellen
+	modules := []Module{
+		{
+			Number: 346,
+			Classes: []Class{classA, classB},
+		},
+		{
+			Number: 350,
+			Classes: []Class{classA},
+		},
+		{
+			Number: 360,
+			Classes: []Class{classB},
+		},
+	}
+
+	// Daten ausgeben
+	for _, module := range modules {
+		fmt.Printf("Modul %d wird von folgenden Klassen besucht:\n", module.Number)
+		for _, class := range module.Classes {
+			fmt.Printf("  %s mit den Schülern:\n", class.Name)
+			for _, student := range class.Students {
+				fmt.Printf("    %s %s\n", student.FirstName, student.LastName)
+			}
+		}
+	}
 }
