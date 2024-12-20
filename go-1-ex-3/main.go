@@ -1,21 +1,22 @@
 package main
 
 import (
-	"fmt"
-	"math/rand"
-	"time"
+    "fmt"
+    "math/rand"
+    "os"
+    "time"
 )
 
 func main() {
-	var eyes = rand.Intn(5) + 1
-	var when = time.Now()
+    rand.Seed(time.Now().UnixNano())
+    dice := rand.Intn(6) + 1
+    timestamp := time.Now().Format(time.RFC1123)
 
-	// TODO: use fmt.Fprintln instead!
-	fmt.Println("the dice shows", eyes, "eyes")
+    // TODO: Verwenden Sie os.Stdout und os.Stderr
+    fmt.Fprintln(os.Stdout, dice)      // Würfelergebnis in Standardausgabe
+    fmt.Fprintln(os.Stderr, timestamp) // Zeitpunkt in Standardfehler
 
-	// TODO: use fmt.Fprintln instead!
-	fmt.Println("the dice was rolled at", when)
-
-	// TODO: how to write the output into eyes.txt and dice.log?
-	// go run ex3/main.go TODO
+    // TODO: Ergänzen Sie die Kommentare unten
+    // Programmaufruf:
+    // go run main.go > eyes.txt 2> dice.log
 }
